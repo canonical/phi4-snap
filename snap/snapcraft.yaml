@@ -22,7 +22,7 @@ description: |
   The licenses of all bundled software can be found inside the snap at `/snap/phi4/current/usr/share/doc`.
 
 website: https://documentation.ubuntu.com/inference-snaps
-source-code: https://github.com/mrmara/phi4-snap.git
+source-code: https://github.com/canonical/phi4-snap
 issues: https://github.com/canonical/inference-snaps/issues
 
 adopt-info: version
@@ -43,6 +43,14 @@ platforms:
 environment:
   SNAP_COMPONENTS: /snap/$SNAP_INSTANCE_NAME/components/$SNAP_REVISION
   ARCH_TRIPLET: $CRAFT_ARCH_TRIPLET_BUILD_FOR
+
+slots:
+  provider:
+    interface: content
+    content: inference-provider
+    source:
+      read:
+        - $SNAP_COMMON/share/provider
 
 plugs:
   # To allow sideloading models by root
@@ -168,13 +176,22 @@ parts:
     organize:
       "*": (component/llamacpp-cuda)
 
+  # Used for NVIDIA vRAM and CUDA Capability detection.
+  # Only the binary is included to avoid staging libraries, which should instead be provided by the host through the opengl interface.
   cli-nvidia-smi:
     plugin: nil
-    stage-packages:
+    build-packages:
       - nvidia-utils-550
+    override-build: |
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      cp /usr/bin/nvidia-smi $CRAFT_PART_INSTALL/usr/bin/
+
+      license_dir=$CRAFT_PART_INSTALL/usr/share/doc/nvidia-utils-550
+      mkdir -p $license_dir
+      cp /usr/share/doc/nvidia-utils-550/copyright $license_dir/
     organize:
       usr/bin/nvidia-smi: (component/llamacpp-cuda)/bin/nvidia-smi
-      usr/lib/x86_64-linux-gnu/libnvidia-ml.so.550.127.05: (component/llamacpp-cuda)/lib/libnvidia-ml.so.550.127.05
+      usr/share/doc/nvidia-utils-550: (component/llamacpp-cuda)/usr/share/doc/nvidia-utils-550
 
   notice:
     plugin: nil
