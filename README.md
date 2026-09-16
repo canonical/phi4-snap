@@ -1,64 +1,41 @@
----
-#
-# This YAML frontmatter is read by an AI agent during snap creation and then removed from the README.
-#
-
-# Snap name. This is exposed as a command when installing the snap.
-snap-name: gemma4
-# Snap title, a friendly name for the snap, used in snap metadata and docs.
-snap-title: Gemma 4
+<!--
+# This is the name of the snap. The name that is registered on the snap store and also the name of the cli command.
+snap-name: phi4
+# This name is just a friendly name for the snap, it can be used in the documentation
+snap-friendly-name: Phi 4
 # URL to model card from the model publisher
-model-card: https://ai.google.dev/gemma/docs/core/model_card_4
+model-card: https://ai.azure.com/catalog/models/Phi-4
 # The port that the inference snap will use for its API server.
-http-port: 8080
+http-port: 8346
 # The port that the inference snap will use for its webui server.
-webui-http-port: 8081
+webui-http-port: 8347
 # Optimizations
 engines: cpu, nvidia-gpu
----
+-->
 
-> [!NOTE]
-> This README is a template that is be read and completed by an AI agent to create an inference snap.
-> 
-> Complete the [Makefile](./Makefile) and the above YAML frontmatter. Leave everything else to the AI agent.
-> Fields wrapped in `{...}` will be replaced with concrete values by the AI agent. This note and the YAML frontmatter will be deleted.
->
-> Launch a [Workshop](https://ubuntu.com/workshop) environment with everything you need to create the snap:
-> ```shell
-> workshop launch
-> workshop shell
-> opencode
-> ```
-> Choose the preferred LLM in OpenCode and prompt `start packing pipeline` to start the snap creation process.
-> The snap will be developed, built and tested automatically in the workshop environment.
-> 
-> If this is the first time doing this, refer to [Using an AI agent to create an inference snap](https://documentation.ubuntu.com/inference-snaps/tutorial/agentic-inference-snap-creation/) tutorial.
+# Phi 4 inference snap
+[![phi4](https://snapcraft.io/phi4/badge.svg)](https://snapcraft.io/phi4)
 
-# {snap-title} inference snap
-[![{snap-name}](https://snapcraft.io/{snap-name}/badge.svg)](https://snapcraft.io/{snap-name})
+Phi4 is a state-of-the-art open model built upon a blend of synthetic datasets, data from filtered public domain websites, and acquired academic books and Q&A datasets. The goal of this approach was to ensure that small capable models were trained with data focused on high quality and advanced reasoning
 
 
-
-{model description}
-
-Use this snap to quickly install an optimized environment for local inference with {snap-title}.
+Use this snap to quickly install an optimized environment for local inference with Phi 4.
 
 The snap includes the following hardware-optimized inference engines:
 
 * cpu: Optimized for x64 and ARM (armv8, armv9) CPUs
 * nvidia-gpu: CUDA-enabled GPU acceleration
-* {engine}: {description}
 
 The most suitable engine is automatically selected based on the available hardware.
 
 #### Install
 ```
-sudo snap install {snap-name}
+sudo snap install phi4
 ```
 
 #### Run
 ```
-{snap-name}
+phi4
 ```
 
 > [!TIP]
@@ -76,8 +53,8 @@ sudo snap install {snap-name}
 
 Clone the repo:
 ```shell
-git clone https://github.com/{owner}/{repository}
-cd {repository}
+git clone https://github.com/canonical/phi4-snap
+cd phi4-snap
 ```
 
 Initialize the development environment:

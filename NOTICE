@@ -1,0 +1,30 @@
+Phi-4 Model License
+====================
+
+The Phi-4 model is licensed by Microsoft under the MIT License.
+
+Model Card: https://ai.azure.com/catalog/models/Phi-4
+
+---
+
+Third-Party Software
+====================
+
+This snap bundles the following third-party software:
+
+1. llama.cpp
+   - License: MIT
+   - Copyright: Georgi Gerganov and contributors
+   - Location: /snap/phi4/current/usr/share/doc/llama.cpp
+
+2. inference-snaps-cli
+   - License: GNU Affero General Public License v3.0
+   - Copyright: Canonical Ltd
+   - Repository: https://github.com/canonical/inference-snaps-cli
+
+3. inference-snaps-webui
+   - License: GNU Affero General Public License v3.0
+   - Copyright: Canonical Ltd
+   - Repository: https://github.com/canonical/inference-snaps-webui
+
+For complete license texts, see the files in /snap/phi4/current/usr/share/doc/
