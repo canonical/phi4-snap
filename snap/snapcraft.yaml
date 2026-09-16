@@ -181,17 +181,14 @@ parts:
   cli-nvidia-smi:
     plugin: nil
     build-packages:
-      - nvidia-utils-550
+      - nvidia-utils-580
     override-build: |
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       cp /usr/bin/nvidia-smi $CRAFT_PART_INSTALL/usr/bin/
-
-      license_dir=$CRAFT_PART_INSTALL/usr/share/doc/nvidia-utils-550
+      
+      license_dir=$CRAFT_PART_INSTALL/usr/share/doc/nvidia-utils-580/
       mkdir -p $license_dir
-      cp /usr/share/doc/nvidia-utils-550/copyright $license_dir/
-    organize:
-      usr/bin/nvidia-smi: (component/llamacpp-cuda)/bin/nvidia-smi
-      usr/share/doc/nvidia-utils-550: (component/llamacpp-cuda)/usr/share/doc/nvidia-utils-550
+      cp /usr/share/doc/nvidia-utils-580/copyright $license_dir/
 
   notice:
     plugin: nil
