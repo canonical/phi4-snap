@@ -6,9 +6,9 @@ snap-friendly-name: Phi 4
 # URL to model card from the model publisher
 model-card: https://ai.azure.com/catalog/models/Phi-4
 # The port that the inference snap will use for its API server.
-http-port: 8346
+http-port: 8360
 # The port that the inference snap will use for its webui server.
-webui-http-port: 8347
+webui-http-port: 8361
 # Optimizations
 engines: cpu, nvidia-gpu
 -->

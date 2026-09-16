@@ -206,7 +206,7 @@ parts:
 components:
   model-q4-k-m-gguf-1-of-2: &model-14b
     type: standard
-    summary: Phi 4 Q4_K_M quantized GGUF model (part 1 0f 2)
+    summary: Phi 4 Q4_K_M quantized GGUF model (part 1 of 2)
     description: |
       14B parameter model quantized to Q4_K_M format for efficient CPU and GPU inference.
   model-q4-k-m-gguf-2-of-2:
