@@ -1,15 +1,9 @@
 <!--
-# This is the name of the snap. The name that is registered on the snap store and also the name of the cli command.
 snap-name: phi4
-# This name is just a friendly name for the snap, it can be used in the documentation
 snap-friendly-name: Phi 4
-# URL to model card from the model publisher
 model-card: https://ai.azure.com/catalog/models/Phi-4
-# The port that the inference snap will use for its API server.
 http-port: 8360
-# The port that the inference snap will use for its webui server.
 webui-http-port: 8361
-# Optimizations
 engines: cpu, nvidia-gpu
 -->
 

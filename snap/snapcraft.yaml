@@ -131,7 +131,7 @@ parts:
       "server.sh": bin/
       "server-webui.sh": bin/
 
-  local-component-files:
+  model-weights:
     plugin: cmake
     source: model-weights
     override-build: |
@@ -148,10 +148,15 @@ parts:
     source:
       - on amd64: https://github.com/canonical/llama.cpp-builds/releases/download/b10344/llamacpp-amd64.tar.gz
       - on arm64: https://github.com/canonical/llama.cpp-builds/releases/download/b10344/llamacpp-arm64.tar.gz
+    override-build: |
+      # Move license files to be included in the snap, not the component
+      mkdir -p $CRAFT_PRIME/usr/share/doc/
+      mv licenses $CRAFT_PRIME/usr/share/doc/llama.cpp
+
+      craftctl default
     stage-packages:
       - libgomp1
     organize:
-      "licenses": usr/share/doc/llama.cpp # Add licenses to the snap
       "*": (component/llamacpp)
 
   llamacpp-cuda:
@@ -159,10 +164,15 @@ parts:
     source:
       - on amd64: https://github.com/canonical/llama.cpp-builds/releases/download/b10344/llamacpp-amd64+cuda12.9.tar.gz
       - on arm64: https://github.com/canonical/llama.cpp-builds/releases/download/b10344/llamacpp-arm64+cuda12.9.tar.gz
+    override-build: |
+      # Move license files to be included in the snap, not the component
+      mkdir -p $CRAFT_PRIME/usr/share/doc/
+      mv licenses $CRAFT_PRIME/usr/share/doc/llama.cpp+cuda
+
+      craftctl default
     stage-packages:
       - libgomp1
     organize:
-      "licenses": usr/share/doc/llama.cpp+cuda # Add licenses to the snap
       "*": (component/llamacpp-cuda)
 
   # Used for NVIDIA vRAM and CUDA Capability detection.

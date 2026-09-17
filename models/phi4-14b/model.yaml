@@ -1,5 +1,4 @@
 name: phi4-14b
-alias: phi4-14b
 
 description: |
   Phi-4 14B model quantized to Q4_K_M for efficient inference
