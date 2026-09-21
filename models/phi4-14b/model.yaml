@@ -2,14 +2,13 @@ name: phi4-14b
 
 description: |
   Phi-4 14B model quantized to Q4_K_M for efficient inference
-model-card-url: https://ai.azure.com/catalog/models/Phi-4
-quantization: Q4_K_M
 
+model-card-url: https://huggingface.co/inference-snaps/phi-4-Q4_K_M-5GB
+quantization: Q4_K_M
 disk-size: 8600M
 
 capabilities:
   - text
-  - thinking
 
 components:
   - model-q4-k-m-gguf-1-of-2
