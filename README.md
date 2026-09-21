@@ -1,12 +1,3 @@
-<!--
-snap-name: phi4
-snap-friendly-name: Phi 4
-model-card: https://ai.azure.com/catalog/models/Phi-4
-http-port: 8360
-webui-http-port: 8361
-engines: cpu, nvidia-gpu
--->
-
 # Phi 4 inference snap
 [![phi4](https://snapcraft.io/phi4/badge.svg)](https://snapcraft.io/phi4)
 
