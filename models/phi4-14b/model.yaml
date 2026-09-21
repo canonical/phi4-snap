@@ -1,0 +1,25 @@
+name: phi4-14b
+
+description: |
+  Phi-4 14B model quantized to Q4_K_M for efficient inference
+
+model-card-url: https://huggingface.co/inference-snaps/phi-4-Q4_K_M-5GB
+quantization: Q4_K_M
+disk-size: 8600M
+
+capabilities:
+  - text
+
+components:
+  - model-q4-k-m-gguf-1-of-2
+  - model-q4-k-m-gguf-2-of-2
+  
+environment:
+  - SHARDS_DIR=/tmp/phi-4-q4-k-m-shards
+  - MODEL_FILE=$SHARDS_DIR/phi-4-Q4_K_M-00001-of-00002.gguf
+
+layout:
+  $SHARDS_DIR/phi-4-Q4_K_M-00001-of-00002.gguf:
+    symlink: $SNAP_COMPONENTS/model-q4-k-m-gguf-1-of-2/phi-4-Q4_K_M-00001-of-00002.gguf
+  $SHARDS_DIR/phi-4-Q4_K_M-00002-of-00002.gguf:
+    symlink: $SNAP_COMPONENTS/model-q4-k-m-gguf-2-of-2/phi-4-Q4_K_M-00002-of-00002.gguf
