@@ -1,26 +1,40 @@
 name: phi4
+title: Phi 4
 base: core24
-summary: Phi 4 inference snap
+summary: Local AI with Phi 4 inference snap
 description: |
-  This is an inference snap that lets you run phi4, a 14B parameter language model by Microsoft.
-  
-  Before you start, make sure to have the necessary drivers installed on the host:
-  https://documentation.ubuntu.com/inference-snaps/how-to/install-drivers/
-  
+  Phi 4 is a 14B parameter state-of-the-art open model by Microsoft, built upon a blend
+  of synthetic datasets, filtered public domain websites, and academic books and Q&A
+  datasets, focused on high quality data and advanced reasoning.
+
+  Use this snap to quickly install an optimized environment for local inference with Phi 4.
+
+  The snap includes the following hardware-optimized inference engines:
+
+  * cpu: Optimized for x64 and ARM (armv8, armv9) CPUs
+  * nvidia-gpu: CUDA-enabled GPU acceleration
+
+  The most suitable engine is automatically selected based on the available hardware.
+
   **Install:**
-  
+
   `sudo snap install phi4`
-  
-  **Get help:**
-  
-  `phi4 --help`
-  
-  **Licensing:**
-  
+
+  **Run:**
+
+  `phi4`
+
+  Some accelerators require extra drivers to be usable with this snap:
+  https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/
+
+  **License:**
+
   The Phi 4 model is provided by Microsoft under the MIT license.
 
-  The licenses of all bundled software can be found inside the snap at `/snap/phi4/current/usr/share/doc`.
+  The licenses of all the bundled software can be found after installing the snap at
+  `/snap/phi4/current/usr/share/doc`.
 
+icon: snap/gui/icon-256.png
 website: https://documentation.ubuntu.com/inference-snaps
 source-code: https://github.com/canonical/phi4-snap
 issues: https://github.com/canonical/inference-snaps/issues
@@ -245,3 +259,9 @@ apps:
     daemon: simple
     plugs:
       - network-bind
+
+lint:
+  ignore:
+    - metadata:
+      - license
+      - contact
