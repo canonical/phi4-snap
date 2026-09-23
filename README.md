@@ -14,12 +14,12 @@ The snap includes the following hardware-optimized inference engines:
 The most suitable engine is automatically selected based on the available hardware.
 
 #### Install
-```
+```shell
 sudo snap install phi4
 ```
 
 #### Run
-```
+```shell
 phi4
 ```
 
